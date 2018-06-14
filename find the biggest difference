@@ -1,0 +1,29 @@
+/*You need to print the biggest difference between any two numbers present in the array.*/
+
+#include<stdio.h>
+int main(int argc, char *a[])
+{
+	//Write code here
+	int n;
+	scanf("%d",&n);
+	int b[n];
+	int i;
+	for(i=0;i<n;i++)
+	 scanf("%d",&b[i]);
+	int max=b[0];
+	int min=b[0];
+	for(i=1;i<n;i++)
+	{
+	   if(max<b[i])
+	   {
+	       max=b[i];
+	   }
+	  
+	   if(min>b[i])
+	   {
+	       min=b[i];
+	   }
+	}
+	printf("%d",max-min);
+	return 0;
+}
