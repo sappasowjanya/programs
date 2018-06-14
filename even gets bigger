@@ -1,0 +1,26 @@
+//form a number by appending even numbers in the array.In case you did not found any even number, print 0 to the stdout. 
+
+#include<stdio.h>
+int main(int argc, char *a[])
+{
+	//Write code here
+	int n;
+	int i,c=0;
+	scanf("%d",&n);
+	int b[n];
+	for(i=0;i<n;i++)
+	{
+	    scanf("%d",&b[i]);
+	    if(b[i]%2==0)
+	    {
+	        printf("%d",b[i]);
+	    }
+	    else
+	    {
+	        c++;
+	    }
+	}
+	if(c==n)
+	printf("0");
+	return 0;
+}
