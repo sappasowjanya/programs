@@ -1,0 +1,30 @@
+/*you will be given an array and you are asked to find the second largest even number and print it to the stdout. */
+
+
+
+#include<stdio.h>
+int main()
+{
+	//Write code here
+	int n,largesteven=0,secondlarge;
+	scanf("%d",&n);
+	int b[n];
+	int i;
+	for(i=0;i<n;i++)
+	{
+	    scanf("%d",&b[i]);
+	}
+	for(i=0;i<n;i++)
+	{
+	    if(b[i]%2==0)
+	    {
+	        if(b[i]>largesteven)
+	        {
+	            secondlarge=largesteven;
+	            largesteven=b[i];
+	        }
+	    }
+	}
+	printf("%d",secondlarge);
+	
+}
