@@ -1,0 +1,36 @@
+input
+6
+90 98 100 102 105 110
+output
+20
+
+
+
+
+
+#include<stdio.h>
+int main(int argc, char *a[])
+{
+	//Write code here
+		int n;
+	scanf("%d",&n);
+	int i,b[n],j,temp;
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&b[i]);
+    }
+    for(i=0;i<n-1;i++)
+    {
+        for(j=i+1;j<n;j++)
+        {
+            if(b[i]>b[j])
+            {
+                temp=b[i];
+                b[i]=b[j];
+                b[j]=temp;
+            }
+        }
+    }
+    printf("%d",b[n-1]-b[0]);
+    return 0;
+}
