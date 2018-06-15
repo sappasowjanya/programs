@@ -1,0 +1,25 @@
+
+//function to get the node value [given position from tail]
+/*
+ * For your reference:
+ *
+ * SinglyLinkedListNode {
+ *     int data;
+ *     SinglyLinkedListNode* next;
+ * };
+ *
+ */
+int getNode(SinglyLinkedListNode* head, int positionFromTail) {
+  SinglyLinkedListNode *ptr1,*ptr2;
+    ptr1=head;
+    ptr2=head;
+    while(positionFromTail--)
+        ptr2=ptr2->next;
+    while(ptr2->next!=NULL)
+    {
+        ptr1=ptr1->next;
+        ptr2=ptr2->next;
+    }
+    return ptr1->data;
+
+}
