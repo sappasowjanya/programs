@@ -1,0 +1,19 @@
+/*Given a pointer to the head node of a linked list, print its elements in order, one element per line.*/
+//function to print the linkedlist in reverse.
+
+void printLinkedList(SinglyLinkedListNode* head) {  
+     if(head==NULL)
+         return;
+    else
+    {
+        while(head!=NULL)
+        {
+            printf("%d\n",head->data);
+            head=head->next;
+        }
+    }
+    return;
+
+}
+
+
