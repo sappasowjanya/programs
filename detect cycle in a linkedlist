@@ -1,0 +1,24 @@
+/*
+ * For your reference:
+ *
+ * SinglyLinkedListNode {
+ *     int data;
+ *     SinglyLinkedListNode* next;
+ * };
+ *
+ */
+bool has_cycle(SinglyLinkedListNode* head) {
+
+     SinglyLinkedListNode *big,*baby;
+    big=head;
+    baby=head;
+    if(head==NULL)
+        return 0;
+    do{
+        if(big->next==NULL||big->next->next==NULL)
+            return 0;
+        big=big->next->next;
+        baby=baby->next;
+    }while(big!=baby);
+    return 1;
+}
