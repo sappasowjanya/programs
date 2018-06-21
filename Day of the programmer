@@ -1,0 +1,44 @@
+#include <assert.h>
+#include <limits.h>
+#include <math.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+int main() {
+
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */    
+    int year;
+    scanf("%d",&year);
+    if(year==1918)
+    {
+        printf("26.09.1918");
+    }
+   else if(year<1918)
+    {
+        if(year%4==0)
+        {
+            printf("12.09.");
+        }
+        else
+        {
+            printf("13.09.");
+        }
+        printf("%d",year);
+    }
+    else
+    {
+        if((year%400==0)||((year%4==0)&&(year%100!=0)))
+        {
+            printf("12.09.");
+        }
+        else
+        {
+            printf("13.09.");
+        }
+        printf("%d",year);
+    }
+    return 0;
+}
