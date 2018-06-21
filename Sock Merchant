@@ -1,0 +1,24 @@
+// Complete the sockMerchant function below.
+int sockMerchant(int n, int ar_count, int* ar) {
+
+    int i,c=0,j;
+    for(i=0;i<ar_count;i++)
+    {
+        for(j=i+1;j<ar_count;j++)
+        {
+            if(ar[i]==0)
+            {
+                break;
+            }
+            if(ar[i]==ar[j]&&ar[i]!=0&&ar[j]!=0)
+          {
+              c++;
+              ar[i]=0;
+              ar[j]=0;
+              break;
+          }
+        }
+    }
+    return c;
+
+}
