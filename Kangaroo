@@ -1,0 +1,10 @@
+int main()
+{
+   long long  int x1,v1,x2,v2;
+    scanf("%lld%lld%lld%lld",&x1,&v1,&x2,&v2);
+    if(v1 > v2 && ((x2-x1)%(v1-v2))==0)
+    printf("YES");
+else
+    printf("NO");
+    return 0;
+}
