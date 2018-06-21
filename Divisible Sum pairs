@@ -1,0 +1,16 @@
+// Complete the divisibleSumPairs function below.
+int divisibleSumPairs(int n, int k, int ar_count, int* ar) {
+
+    int i,count=0,j;
+    for(i=0;i<n;i++)
+    {
+        for(j=i+1;j<n;j++)
+        {
+            if((ar[i]+ar[j])%k==0)
+            {
+                count++;
+            }
+        }
+    }
+   return count;
+}
