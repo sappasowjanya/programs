@@ -1,0 +1,48 @@
+/*
+You will be given 4 numbers one on each line and you are asked to find the second largest number and print them to the STDOUT .  
+
+Input Format
+You will take 4 integers as input from STDIN. 
+
+Constraints
+1<= Integer values <= 1000
+
+Output Format
+print your result which will be the integer only to the STDOUT. 
+
+Sample TestCase 1
+Input
+4567
+9876
+345
+12
+Output
+345*/
+
+
+
+#include<stdio.h>
+int main(int argc, char *a[])
+{
+	//Write code here
+	int i,j;
+	int b[4];
+	for(i=0;i<4;i++)
+	{
+	    scanf("%d",&b[i]);
+	}
+	for(i=0;i<4;i++)
+	{
+	    for(j=i+1;j<4;j++)
+	    {
+	        if(b[i]>b[j])
+	        {
+	           int temp=b[i];
+	           b[i]=b[j];
+	           b[j]=temp;
+	        }
+	    }
+	}
+	printf("%d",b[1]);
+	return 0;
+}
