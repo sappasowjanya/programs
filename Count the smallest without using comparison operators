@@ -1,0 +1,18 @@
+//Given three numbers, find Smallest of three integers without comparison operators.
+
+//function
+
+ int smallestOfIntegersWithoutComparisonOperation(int input1,int input2,int input3)
+    {
+        //Write code here
+        int c=0;
+        while(input1&&input2&&input3)
+        {
+            input1--;
+            input2--;
+            input3--;
+            c++;
+        }
+        return c;
+    }
+
