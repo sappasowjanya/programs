@@ -1,0 +1,42 @@
+/*You will be given an array and you need to find odd numbers and add them, find even numbers and add them and print the absolute value of subtraction between those two sums of odd and even values.  
+
+Input Format
+You will be taking a number as an input from STDIN which tells about the length of the array. On another line, array elements should be there with single space between them. 
+
+Constraints
+1 <= L <= 1000
+1 <= Ai <= 1000
+
+Output Format
+Print the absolute value of subtraction to the STDOUT. 
+
+Sample TestCase 1
+Input
+3
+23 22 1
+Output
+2*/
+#include<stdio.h>
+#include<math.h>
+int main(int argc, char *a[])
+{
+	//Write code here
+	int n;
+	scanf("%d",&n);
+	int i,b[n],even=0,odd=0;
+	for(i=0;i<n;i++)
+	{
+	    scanf("%d",&b[i]);
+	    if(b[i]%2==0)
+	    {
+	        even=even+b[i];
+	    }
+	    else
+	    {
+	        odd=odd+b[i];
+	    }
+	}
+	printf("%d",abs(even-odd));
+	return 0;
+	
+}
