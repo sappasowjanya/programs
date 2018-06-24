@@ -1,0 +1,17 @@
+//Given two numbers, add them without using arithmetic operators.
+//Function
+int addTwoNumbersWithoutUsingOperators(int input1,int input2)
+    {
+        //Write code here
+        int c=0;
+       int i;
+       for(i=1;i<=input1;i++)
+       {
+           c++;
+       }
+       for(i=1;i<=input2;i++)
+       {
+           c++;
+       }
+       return c;
+    }
