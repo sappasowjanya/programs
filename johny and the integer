@@ -1,0 +1,32 @@
+/*Johny likes numbers n and k very much. Now Johny wants to find the smallest integer x greater than n, so it is divisible by the number k.
+
+Input Format
+You will be given a function with two integers n and k as arguments.
+
+Constraints
+1 <= n, k <=10^9
+
+Output Format
+Return the smallest integer x > n, so it is divisible by the number k.
+Sample TestCase 1
+Input
+5
+3
+Output
+6*/
+
+
+int johnyAndTheInteger(int n,int k)
+    {
+        //Write code here
+          int i,c;
+        for(i=n+1;i<1000;i++)
+        {
+            if(i%k==0)
+            {
+                c=i;
+                break;
+            }
+        }
+        return c;
+    }
