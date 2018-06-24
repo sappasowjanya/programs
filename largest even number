@@ -1,0 +1,42 @@
+/*
+Task - For this challenge, you will be given an array and you are asked to find the largest even number and print it to the STDOUT. 
+
+Input Format
+you will be taking a number as an input from STDIN which tells about the length of the array. On another line, array elements should be there with single space between them. 
+
+Constraints
+1 <= L <= 1000
+1 <= Ai <= 1000
+
+Output Format
+print the largest even number to the STDOUT. 
+
+Sample TestCase 1
+Input
+6
+78 92 44 63 71 97
+Output
+92*/
+
+#include<stdio.h>
+int main(int argc, char *a[])
+{
+	//Write code here
+	int n;
+	scanf("%d",&n);
+	int i,b[n],c=0;
+	for(i=0;i<n;i++)
+	{
+	    scanf("%d",&b[i]);
+	    if(b[i]%2==0)
+	    {
+	        if(b[i]>c)
+	        {
+	            c=b[i];
+	        }
+	    }
+	}
+	printf("%d",c);
+	return 0;
+}
+
