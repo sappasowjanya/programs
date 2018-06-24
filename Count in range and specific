@@ -1,0 +1,49 @@
+/*
+You will be given an array and a range and you need to count how many array elements lies in that range and not divisible by 3 and 5. 
+
+Input Format
+First line will contain an Integer indicating size of the array.
+Next line will contain n integer denoting the array elements.
+
+Constraints
+1 <= L <= 1000
+1 <= Ai <= 1000
+
+Output Format
+Print the count to the STDOUT. 
+
+Sample TestCase 1
+Input
+6
+16 17 4 3 5 2
+2 10
+Output
+2*/
+
+
+#include<stdio.h>
+int main(int argc, char *a[])
+{
+	//Write code here
+	int n;
+	scanf("%d",&n);
+	int b[n];
+	int i,m,j;
+	int count=0;
+	for(i=0;i<n;i++)
+	{
+	    scanf("%d",&b[i]);
+	    
+	}
+	scanf("%d%d",&m,&j);
+	for(i=0;i<n;i++)
+	{
+	if(b[i]>=m&&b[i]<=j&&b[i]%3!=0&&b[i]%5!=0)
+	    {
+	        count++;
+	    }
+	}
+	
+	printf("%d",count);
+	return 0;
+}
