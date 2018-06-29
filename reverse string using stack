@@ -1,0 +1,52 @@
+//Given a string, revese it with the help of stack.
+#include<stdio.h>
+#include<string.h>
+ struct arraystack
+    {
+        int top;
+        int capacity;
+        char *arr;
+    };
+    struct arraystack *stack;
+    void create(int capacity)
+    {
+        stack=(struct arraystack*)malloc(sizeof(struct arraystack));
+        stack->top=-1;
+        stack->capacity=capacity;
+        stack->arr=(char *)malloc(capacity*sizeof(char));
+    }
+    void push(struct arraystack *stack,char str)
+    {
+        stack->arr[++stack->top]=str;
+    }
+    char pop(struct arraystack *stack)
+    {
+        return stack->arr[stack->top--];
+    }
+    char* reverseString(char* str)
+    {
+        //Write code here
+        int i=0,j=-1;
+        create(strlen(str));
+        while(str[i])
+        {
+            push(stack,str[i]);
+            i++;
+        }
+        while(stack->top!=-1)
+        {
+            str[++j]=pop(stack);
+        }
+        str[++j]='\0';
+        return str;
+    }
+    
+    int main() {
+    char* output;
+    char* ip1;
+    ip1 = (char *)malloc(512000 * sizeof(char));
+    scanf("\n%[^\n]",ip1);
+    output = reverseString(ip1);
+    printf("%s\n", output);
+    return 0;
+}
