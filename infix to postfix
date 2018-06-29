@@ -1,0 +1,115 @@
+//
+
+#include <math.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <limits.h>
+#include <stdbool.h>
+   struct arraystack
+{
+	int top;
+	int capacity;
+	char *arr;
+};
+struct arraystack * stack;
+
+void createstack(int capacity)
+{
+	stack = (struct arraystack*)malloc(sizeof(struct arraystack));
+	stack->top = -1;
+	stack->capacity = capacity;
+	stack->arr = (char*)malloc(capacity*sizeof(char));
+}
+int isoperator(char c)
+{
+	if(c=='+' || c=='-' || c=='*' || c=='/' || c=='^')
+	return 1;
+	else
+	return 0;
+}
+void push(struct arraystack * stack,char value)
+{
+	stack->arr[++stack->top] = value;
+}
+char pop(struct arraystack *stack)
+{
+	return stack->arr[stack->top--];
+}
+char peek(struct arraystack * stack)
+{
+	return stack->arr[stack->top];
+}
+int empty(struct arraystack* stack)
+{
+	if(stack->top==-1)
+	return 1;
+	else
+	return 0;
+}
+int prec(char c)
+{
+	switch(c)
+	{
+		case '+':
+		case '-':
+			return 1;
+		
+		case '*':
+		case '/':
+			return 2;
+		case '^':
+		    return 3;
+	}
+	return -1;
+}
+    char* InfixToPostfix(char* str)
+    {
+        createstack(strlen(str));
+        int i=0,j=-1;
+                    while(str[i])
+            	{
+            		if(isoperator(str[i]))
+            		{
+            			while(!empty(stack) && prec(peek(stack))>=prec(str[i]))
+            			{
+            				str[++j] = pop(stack);
+            			}
+            			push(stack,str[i]);
+            		}
+            		else if(str[i]=='(')
+            		{
+            			push(stack,str[i]);
+            		}
+            		else if(str[i]==')')
+            		{
+            			while(!empty(stack) && peek(stack)!='(')
+            			{
+            				str[++j] = pop(stack);
+            			}
+            			pop(stack);
+            		}
+            		else
+            		{
+            			str[++j] = str[i];
+            		}
+            		i++;
+            	}
+            	while(!empty(stack))
+            	{
+            		str[++j] = pop(stack);
+            	}
+            	str[++j] = '\0';
+            	
+            	return str;
+    }
+    int main() {
+    char* output;
+    char* ip1;
+    ip1 = (char *)malloc(512000 * sizeof(char));
+    scanf("\n%[^\n]",ip1);
+    output = InfixToPostfix(ip1);
+    printf("%s\n", output);
+    return 0;
+}
