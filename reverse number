@@ -1,0 +1,14 @@
+// function
+
+int reverseNumber(int input1)
+    {
+        //Write code here
+        int rem,rev=0;
+        while(input1>0)
+        {
+            rem=input1%10;
+            rev=rev*10+rem;
+            input1=input1/10;
+        }
+        return rev;
+    }
