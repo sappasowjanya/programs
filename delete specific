@@ -1,0 +1,106 @@
+//You will be given the linked list and you are asked to delete the specific node provided in the last line of the input and print the modified linked list.
+Indexing of linked list starts at 1.
+Input
+7
+10
+20
+30
+40
+50
+60
+70
+20
+Output
+10
+30
+40
+50
+60
+70
+
+#include<stdio.h>
+struct node
+{
+    int data;
+    struct node *next;
+};
+struct node *head;
+struct node* insert(int val)
+{
+    struct node *temp,*temp1;
+    temp=(struct node*)malloc(sizeof(struct node));
+    temp->data=val;
+    temp->next=NULL;
+    temp1=head;
+    if(head==NULL)
+    {
+        head=temp;
+        return head;
+    }
+    else
+    {
+        while(temp1->next!=NULL)
+        {
+            temp1=temp1->next;
+        }
+        temp1->next=temp;
+    }
+    return head;
+}
+void print(struct node *head)
+{
+    if(head==NULL)
+    {
+        return ;
+    }
+    else
+    {
+        printf("%d\n",head->data);
+        print(head->next);
+    }
+}
+struct node* deletenode(struct node*head,int val)
+{
+   struct node *temp,*prev;
+   temp=head;
+   prev=NULL;
+   if(head->data==val)
+   {
+       head=head->next;
+        return head;
+   }
+   else
+   {
+       while(temp!=NULL)
+       {
+           if(temp->data!=val)
+           {
+               prev=temp;
+               temp=temp->next;
+           }
+           else
+           {
+              prev->next=temp->next;
+              free(temp);
+           }
+       }
+   }
+   return head;
+}
+int main(int argc, char *a[])
+{
+	//Write code here
+	int n,m,val;
+	scanf("%d",&n);
+	int i;
+	struct node*h,*hd;
+	for(i=0;i<n;i++)
+	{
+	    scanf("%d",&m);
+	    h=insert(m);
+	}
+	scanf("%d",&val);
+	hd=deletenode(h,val);
+	print(hd);
+	return 0;
+}
