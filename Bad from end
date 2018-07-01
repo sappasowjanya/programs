@@ -1,0 +1,79 @@
+//You will be given the linked list and you are asked to find how much negatives nodes are there till Nth distance from end and print the count
+
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+    int data;
+    struct node *next;
+};
+struct node *head;
+struct node* insert(int val)
+{
+    struct node *temp,*temp1;
+    temp=(struct node*)malloc(sizeof(struct node));
+    temp->data=val;
+    temp->next=NULL;
+    temp1=head;
+    if(head==NULL)
+    {
+        head=temp;
+        return head;
+    }
+    else
+    {
+        while(temp1->next!=NULL)
+        {
+            temp1=temp1->next;
+        }
+        temp1->next=temp;
+    }
+    return head;
+}
+int deletenode(struct node*head,int count,int n)
+{
+    struct node *temp;
+    temp=head;
+    int c=n-count;
+    int pos=1;
+    int k=0;
+    while(temp->next!=NULL)
+    { 
+         if(pos<=c)
+         {
+          temp=temp->next;
+           pos++;
+         }
+         else
+         {
+             break;
+         }
+    }
+    while(temp!=NULL)
+    {
+        if(temp->data<0)
+        {
+            k++;
+        }
+        temp=temp->next;
+    }
+    return k;
+}
+int main(int argc, char *a[])
+{
+	//Write code here
+	int n,m,count;
+	scanf("%d",&n);
+	int i;
+	struct node*h;
+	int hd;
+	for(i=0;i<n;i++)
+	{
+	    scanf("%d",&m);
+	    h=insert(m);
+	}
+	scanf("%d",&count);
+	hd=deletenode(h,count,n);
+printf("%d",hd);
+	return 0;
+}
