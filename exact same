@@ -1,0 +1,76 @@
+//You will be given the linked list and you are asked to print the node of it.
+
+
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node
+{
+  struct node *next;
+  int data;
+}*head;
+
+typedef struct node node;
+
+void display()
+{
+    node *curr=head;
+    
+    if(head==NULL)
+        printf("\nLinked List Empty\n");
+    
+    while(curr!=NULL)
+    {
+        printf("%d",curr->data);
+        curr=curr->next;
+        if(curr!=NULL)
+            printf("\n");
+    }
+}
+
+void addAfter(int element)
+{
+    node *temp;
+    node *curr=head;
+    
+    temp = (node *)malloc(sizeof(node));
+    temp->data  = element;
+    
+    if(head == NULL)
+    {
+        head = temp;
+    }
+    else
+    {
+        while(curr->next != NULL)
+        {
+            curr = curr->next;
+        }
+        curr->next = temp;
+    }
+    
+    curr = temp;
+    temp->next = NULL;
+    
+}
+
+int main(int argc, char *a[])
+{
+	//Write code here
+	int *arr,i=0,count=0;
+	
+	arr = (int *)malloc(sizeof(int)*100);
+	
+	for(i=0;i<100;i++)
+	{
+	    if( scanf("%d",&arr[i]) == 1 )
+	    {
+	        addAfter(arr[i]);
+	        count++;
+	    }
+	}
+	
+	display();
+	
+	return 0;
+}
