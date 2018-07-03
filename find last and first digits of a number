@@ -1,0 +1,21 @@
+input : 123456
+output :6
+        1
+        
+        
+        
+        
+  #include <stdio.h>
+#include<math.h>
+int main(void) {
+	// your code goes here
+     int n;
+    scanf("%d",&n);
+    int last,digits,frst;
+    last=n%10;
+    digits=log10(n);
+     frst=n/pow(10,digits);
+   printf("%d\n",last);
+   printf("%d",frst);
+	return 0;
+}
