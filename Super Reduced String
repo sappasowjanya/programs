@@ -1,0 +1,32 @@
+#include <assert.h>
+#include <limits.h>
+#include <math.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main() {
+
+char str[101];
+scanf("%s",str);
+char *stack=(char *)malloc(sizeof(char)*strlen(str));
+int top=-1;
+
+for(int i=0;i<strlen(str);i++){
+        if(stack[top]==str[i])
+            top--;
+        else
+            stack[++top]=str[i];
+}
+if(top==-1)
+    printf("Empty String");
+else
+    {
+    for(int i=0;i<=top;i++)
+        printf("%c",stack[i]);
+}
+return 0;
+}
