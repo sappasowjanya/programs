@@ -1,0 +1,58 @@
+#include <assert.h>
+#include <limits.h>
+#include <math.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+int main()
+{
+    int n,k;
+    scanf("%d",&n);
+    char str[n];
+ int  ch;
+    int i;
+     scanf("%s",str);
+    scanf("%d",&k);
+    //printf("%d",k);
+    for(i=0;i<strlen(str);i++)
+    {
+        if((str[i]>=97&&str[i]<=122))
+        {
+            int c=str[i];
+            ch=c+k%26;
+            if(ch>122)
+            {
+               ch=ch-26;
+                str[i]=ch;
+        
+            }
+            else
+            {
+                str[i]=ch;
+            }
+        }
+        else if((str[i]>=65&&str[i]<=90))
+        {
+            int d=str[i];
+            ch=d+k%26;
+            if(ch>90)
+            {
+                ch=ch-26;
+                str[i]=ch;
+            }
+            else
+            {
+                str[i]=ch;
+            }
+        }
+        else
+        {
+            str[i]=str[i];
+        }
+    }
+   printf("%s",str);
+    return 0;
+}
