@@ -1,0 +1,62 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+string str="abcdefghijklmnopqrstuvwxz";
+int n;
+int current;
+int isVowel(char ch)
+{
+    if(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u')
+          return 1;
+    else
+         return 0;
+}
+void harm(string cur)
+{
+    int len=cur.size();
+    if(len==n)
+    {
+        cout<<cur<<"\n";
+        return;
+    }
+    int prev=1;
+    if(len>0)
+    {
+        prev=isVowel(cur[len-1]);
+    }
+    for(int i=0;i<25;i++)
+    {
+        if(len==0)
+        {
+         char c=str[i];
+      //current=isVowel(c);
+       // if(prev==current)
+        //    continue;
+        cur.push_back(c);
+        harm(cur);
+        cur.pop_back();
+        }
+        else
+        {
+             char c=str[i];
+      current=isVowel(c);
+       if(prev==current)
+           continue;
+        cur.push_back(c);
+        harm(cur);
+        cur.pop_back();
+        }
+    }
+}
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    cin>>n;
+    string cur;
+    cur="";
+    harm(cur);
+    return 0;
+}
