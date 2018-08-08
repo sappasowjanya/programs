@@ -1,0 +1,56 @@
+modify matrix based on every row's last unit digit.
+add unit digit to every number in that row.
+
+
+
+#include <stdio.h>
+
+int main(void) {
+	// your code goes here
+      int n,m;
+      scanf("%d%d",&n,&m);
+      int a[n][m],b[n];
+      int i,j,rem;
+      for(i=0;i<n;i++)
+      {
+         for(j=0;j<m;j++)
+         {
+           scanf("%d",&a[i][j]);
+         }
+      }
+    j=m-1;
+    for(i=0;i<n;i++)
+    {
+        
+        b[i]=(a[i][j])%10;
+    }
+   for(i=0;i<n;i++)
+    {
+       for(j=0;j<m;j++)
+        {
+          a[i][j]=a[i][j]+b[i];
+         }
+     }
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<m;j++)
+        {
+           printf("%d ",a[i][j]);
+        }
+      printf("\n");
+    }
+      
+	return 0;
+}
+
+i/p
+3 4
+15 16 17 12
+15 16 17 13
+15 16 17 14
+
+o/p
+17 18 19 14 
+18 19 20 16 
+19 20 21 18 
+ 
